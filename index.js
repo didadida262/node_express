@@ -3,7 +3,7 @@
  * @Author: didadida262
  * @Date: 2024-10-28 13:54:37
  * @LastEditors: didadida262
- * @LastEditTime: 2024-10-28 14:25:20
+ * @LastEditTime: 2024-10-28 14:30:22
  */
 const fs = require("fs");
 const path = require("path");
@@ -25,13 +25,13 @@ const node_respPath =
     .slice(0, __dirname.split(path.sep).length - 1)
     .join("\\") + "\\node_resp";
 
-const loginRouter = require("./Routes/login");
+// const loginRouter = require("./Routes/login");
 const waferRouter = require("./Routes/wafer");
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(loginRouter);
+// app.use(loginRouter);
 app.use(waferRouter);
 // app.use(videoRouter)
 // app.use(musicRouter)
