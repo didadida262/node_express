@@ -3,7 +3,7 @@
  * @Author: didadida262
  * @Date: 2024-10-28 13:54:37
  * @LastEditors: didadida262
- * @LastEditTime: 2024-10-28 15:58:41
+ * @LastEditTime: 2024-10-28 16:05:28
  */
 const fs = require("fs");
 const path = require("path");
@@ -42,7 +42,7 @@ const router = express.Router();
 router.get("/getWaferDotInfo", (req, res) => {
   const { dotClass, waferInfo, dotData } = require(path.join(
     __dirname,
-    "public",
+    "MockData",
     "circleData.js"
   ));
   res.send({
@@ -52,7 +52,7 @@ router.get("/getWaferDotInfo", (req, res) => {
 router.get("/getWaferInfo", (req, res) => {
   const { dotClass, waferInfo, dotData } = require(path.join(
     __dirname,
-    "public",
+    "MockData",
     "circleData.js"
   ));
   res.send({
