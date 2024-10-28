@@ -3,7 +3,7 @@
  * @Author: didadida262
  * @Date: 2024-10-28 13:54:37
  * @LastEditors: didadida262
- * @LastEditTime: 2024-10-28 14:45:21
+ * @LastEditTime: 2024-10-28 15:58:41
  */
 const fs = require("fs");
 const path = require("path");
@@ -15,7 +15,8 @@ addAliases({
   "@": __dirname + "/"
 });
 const app = express();
-
+// 设置静态资源目录
+app.use(express.static("public"));
 const cors = require("cors");
 const Busboy = require("busboy");
 const req = require("express/lib/request");
@@ -39,8 +40,23 @@ app.use(express.json());
 const router = express.Router();
 
 router.get("/getWaferDotInfo", (req, res) => {
+  const { dotClass, waferInfo, dotData } = require(path.join(
+    __dirname,
+    "public",
+    "circleData.js"
+  ));
   res.send({
-    data: "我尼玛"
+    data: dotData
+  });
+});
+router.get("/getWaferInfo", (req, res) => {
+  const { dotClass, waferInfo, dotData } = require(path.join(
+    __dirname,
+    "public",
+    "circleData.js"
+  ));
+  res.send({
+    data: waferInfo
   });
 });
 app.use(router);
