@@ -3,7 +3,7 @@
  * @Author: didadida262
  * @Date: 2024-10-28 13:54:37
  * @LastEditors: didadida262
- * @LastEditTime: 2024-10-28 14:30:22
+ * @LastEditTime: 2024-10-28 14:45:21
  */
 const fs = require("fs");
 const path = require("path");
@@ -26,20 +26,25 @@ const node_respPath =
     .join("\\") + "\\node_resp";
 
 // const loginRouter = require("./Routes/login");
-const waferRouter = require("./Routes/wafer");
+// const waferRouter = require("./Routes/wafer");
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // app.use(loginRouter);
-app.use(waferRouter);
+// app.use(waferRouter);
 // app.use(videoRouter)
 // app.use(musicRouter)
 
-// //Binding to localhost://3000
-// app.listen(3000,'192.168.0.106',() => {
-//     console.log('Express app started at port 3000');
-// });
+const router = express.Router();
+
+router.get("/getWaferDotInfo", (req, res) => {
+  res.send({
+    data: "我尼玛"
+  });
+});
+app.use(router);
+
 app.listen(3001, () => {
   console.log("Express app started at port 3001");
 });
